@@ -1,0 +1,26 @@
+/* sidebar-right */
+.cart-items {
+    position: fixed;
+    width: 25%;
+    height: 100%;
+    margin-top: 55px;
+    margin-left: 75.2%;
+    text-align: center;
+    box-shadow: -5px 4px 10px rgba(0, 0, 0, 0.25);
+  }
+  
+  .cart-items img {
+    width: max-content;
+    height: max-content;
+  }
+  
+ 
+  
+  .no-chart p{
+    color: rgba(0, 0, 0, 0.25);
+  }
+  @media all and (max-width:767px){
+    .cart-items{
+        display: none;
+    }
+}
