@@ -50,8 +50,7 @@ class home extends React.Component {
                     toggleMenu={this.toggleMenu.bind(this)}
                 />
                 <Content
-                    arrMenus={this.state.arrMenus}
-                    menus={this.state.menus}
+                    arrMenu={this.state.menu}
                 />
             </>
         )

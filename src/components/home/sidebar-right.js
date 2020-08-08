@@ -10,7 +10,7 @@ class Sidecart extends React.Component {
             <>
                 {/* <h3>done mbut</h3>
                 <ol>
-                    {menus.map((menu) => {
+                    {menus.filter((menu) => menu.checked).map((menu) => {
                         return (
                             <li key={menu.id}>
                                 <p>{menu.nama_produk}</p>
