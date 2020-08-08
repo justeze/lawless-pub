@@ -1,40 +1,55 @@
 import React from "react";
+import CardMenu from "./card-menu";
 import "../../styles/home/content.css";
+// import { update } from "ramda";
+
 
 class Content extends React.Component {
-    
-    constructor(){
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            
-        }
+            arrMenus: props.arrMenus,
+            menus: [...props.menus]
+        };
     }
+
+   
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.menus !== this.props.menus) {
+          this.setState({ menus: this.props.menus });
+        }
+      }
+
     
+
+    renderCardMenu(menu) {
+
+        return (
+            <CardMenu
+                
+                key={menu}
+                id={menu.id}
+                name={menu.nama_produk}
+                price={menu.harga_produk}
+                image_path={menu.gambar_produk}
+                quantity={menu.qty}
+                checked={menu.checked}
+            />
+        )
+    }
+
     render() {
-        const { arrMenu } = this.props
         return (
             <>
-                <div className="content">
-                    <div className="content-menu">
-                        <div className="col-md-12 bg-items">
-                            <div className="row">
-                                {arrMenu.map((item) => {
-                                    return (
-                                        <div className="col-md-4 mt-4" key={item.id}>
-                                            <img
-                                                onClick={item.onChange=() => this.toggleMenu(item.id)}
-                                                src={item.gambar_produk}
-                                                alt="img-espresso"
-                                                className="img-fluid"
-                                            />
-                                            <p>{item.nama_produk}</p>
-                                            <p className="price">Rp. {item.harga_produk}</p>
-                                        </div>
-                                    );
-                                })}
+                <div key={this.props.menus}>
+                    {this.state.menus.map((item) => {
+                        return (
+                            <div>
+                                {this.renderCardMenu(item)}
                             </div>
-                        </div>
-                    </div>
+                        )
+                    })}
                 </div>
             </>
         )

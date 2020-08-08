@@ -11,7 +11,7 @@ class home extends React.Component {
     constructor() {
         super()
         this.state = {
-            menu : []
+            menu: []
         }
     }
     componentDidMount() {
@@ -23,10 +23,10 @@ class home extends React.Component {
                 })
             })
             .catch((err) => console.log(err))
-            
+
     }
     toggleMenu(id) {
-        const {menu} = this.state
+        const { menu } = this.state
         const arrtodo = [...menu]
         const result = arrtodo.map((item) => {
             return item.id === id
@@ -40,16 +40,19 @@ class home extends React.Component {
 
     render() {
         // console.log(this.state.menu)
-        const {menu} = this.state
+        const { menu } = this.state
         return (
             <>
                 <Navbar />
                 <Sidebar />
-                <Sidecart 
+                <Sidecart
                     menus={menu}
                     toggleMenu={this.toggleMenu.bind(this)}
                 />
-                <Content arrMenu={this.state.menu}/>
+                <Content
+                    arrMenus={this.state.arrMenus}
+                    menus={this.state.menus}
+                />
             </>
         )
     }

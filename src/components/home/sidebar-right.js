@@ -5,10 +5,10 @@ import "../../styles/home/sidebar-right.css";
 
 class Sidecart extends React.Component {
     render() {
-        const { menus } = this.props
+        // const { menus } = this.props
         return (
             <>
-                <h3>done mbut</h3>
+                {/* <h3>done mbut</h3>
                 <ol>
                     {menus.map((menu) => {
                         return (
@@ -17,7 +17,7 @@ class Sidecart extends React.Component {
                             </li>
                         )
                     })}
-                </ol>
+                </ol> */}
             </>
         )
     }
