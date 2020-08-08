@@ -9,7 +9,7 @@ class Navbar extends React.Component {
             <>
             
                 <div className="navbar">
-                    <div class="navbar-menu">
+                    <div className="navbar-menu">
                             <img src={MenuImg} alt="menu bar" />
                     </div>
                     <div className="page-title">

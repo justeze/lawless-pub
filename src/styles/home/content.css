@@ -1,0 +1,17 @@
+.content {
+    position: relative;
+    width: 75%;
+    height: 100%;
+  }
+.content-menu {
+    margin-left: 75px;
+    margin-top: 55px;
+    height: 100%;
+  }
+  .content-menu img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  

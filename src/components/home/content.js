@@ -1,39 +1,38 @@
 import React from "react";
-import "../../styles/home/navbar.css";
+import "../../styles/home/content.css";
 
 class Content extends React.Component {
+    
+    constructor(){
+        super()
+        this.state = {
+            
+        }
+    }
+    
     render() {
+        const { arrMenu } = this.props
         return (
             <>
-            
-            <div class="content-menu">
-                    <div class="row">
-                        <div class=".col col-md-4">
-
-                        </div>
-                        <div class=".col col-md-4">
-
-                        </div>
-                        <div class=".col col-md-4">
-
-                        </div>
-                        <div class=".col col-md-4">
-
-                        </div>
-                        <div class=".col col-md-4">
-
-                        </div>
-                        <div class=".col col-md-4">
-
-                        </div>
-                        <div class=".col col-md-4">
-
-                        </div>
-                        <div class=".col col-md-4">
-
-                        </div>
-                        <div class=".col col-md-4">
-
+                <div className="content">
+                    <div className="content-menu">
+                        <div className="col-md-12 bg-items">
+                            <div className="row">
+                                {arrMenu.map((item) => {
+                                    return (
+                                        <div className="col-md-4 mt-4" key={item.id}>
+                                            <img
+                                                onClick={item.onChange=() => this.toggleMenu(item.id)}
+                                                src={item.gambar_produk}
+                                                alt="img-espresso"
+                                                className="img-fluid"
+                                            />
+                                            <p>{item.nama_produk}</p>
+                                            <p className="price">Rp. {item.harga_produk}</p>
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
                 </div>
