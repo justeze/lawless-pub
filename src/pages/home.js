@@ -11,33 +11,36 @@ class home extends React.Component {
     constructor() {
         super()
         this.state = {
-            menu: []
+            menu: [],
+            cart: []
         }
     }
     componentDidMount() {
-        const URLString = "http://localhost:9000"
+        const URLString = "http://localhost:9000/"
         Axios.get(URLString)
             .then((res) => {
+                // console.log(res)
                 this.setState({
-                    menu: res.data.data
+                    menu: [...res.data.data]
                 })
             })
             .catch((err) => console.log(err))
+    }
+    
+    // toggleMenu(id) {
+    //     const { menu } = this.state
+    //     const arrtodo = [...menu]
+    //     const result = arrtodo.map((item) => {
+    //         return item.id === id ? { ...item, isComplete: !item.isComplete } : item;
+    //     })
+    //     this.setState({
+    //         menu: result
+    //     })
+    //     console.log(result)
+    // }
 
-    }
-    toggleMenu(id) {
-        const { menu } = this.state
-        const arrtodo = [...menu]
-        const result = arrtodo.map((item) => {
-            return item.id === id 
-        })
-        this.setState({
-            menu: result
-        })
-        console.log(result)
-    }
     render() {
-        // console.log(this.state.menu)
+        console.log(this.state.menu)
         // const { menu } = this.state
         return (
             <>
@@ -45,15 +48,20 @@ class home extends React.Component {
                 <Sidebar />
                 <Sidecart
                     arrMenu={this.state.menu}
-                    toggleMenu={this.toggleMenu.bind(this)}
+                    carts={this.state.cart}
+                    // toggleMenu={this.toggleMenu.bind(this)}
                 />
                 <Content
-                    arrMenu={this.state.menu}
-                    toggleMenu={this.toggleMenu.bind(this)}
+            
+                    menus={this.state.menu}
+                    // toggleMenu={this.toggleMenu.bind(this)}
+
                 />
             </>
         )
+
     }
+
 }
 
 export default home;

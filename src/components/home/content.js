@@ -1,43 +1,85 @@
-import React from "react";
-// import CardMenu from "./card-menu";
+import React, { Fragment } from "react";
 import "../../styles/home/content.css";
-// import { update } from "ramda";
+import CardContent from "./card-content";
+import { update } from "ramda";
 
 
 class Content extends React.Component {
 
     constructor(props) {
+        // console.log(props)
         super(props);
         this.state = {
-            arrMenu: [...props.arrMenu]
+            menus: [...props.menus]
         };
+        this.handleCardChange = this.handleCardChange.bind(this);
+    }
+    handleCardChange(state) {
+        const updatedCardMenu = this.state.menus.findIndex((menu) => {
+            return menu.id === state.id;
+        });
+        this.setState(
+            {
+                menus: update(
+                    updatedCardMenu,
+                    {
+                        ...this.state.menus[updatedCardMenu],
+                        checked: state.checked,
+                        quantity: state.quantity,
+                    },
+                    this.state.menus
+                ),
+            },
+            this.handleMenusChange
+        );
     }
 
-    render() {
+    // componentDidMount() {
+    //     console.log(this.props)
+    //     this.setState({
+    //         menus: [...this.props.menus]
+    //     })
+    // }
+    componentDidUpdate(prevProps) {
+        if (prevProps.menus !== this.props.menus) {
+            this.setState({ menus: this.props.menus });
+        }
+    }
+    renderCardContent(menu) {
         return (
-            <>
-                <div className="content-menu">
-                    <div className="col-md-12 bg-items">
-                        <div className="row">
-                            {this.state.arrMenu.map((item) => {
-                                return (
-                                    <div className="col-md-4 mt-4" key={item.id}>
-                                        <img
-                                            onClick={item.onChange = () => this.props.toggleMenu(item.id)}
-                                            src={item.gambar_produk}
-                                            alt="img-espresso"
-                                            className="img-fluid"
-                                        />
-                                        <p>{item.nama_produk}</p>
-                                        <p className="price">Rp. {item.harga_produk}</p>
-                                    </div>
-                                );
-                            })}
-                        </div>
+            <CardContent
+                handleCardChange={this.handleCardChange}
+                key={menu}
+                id={menu.id}
+                name={menu.nama_produk}
+                price={menu.harga_produk}
+                image_path={menu.gambar_produk}
+                quantity={menu.qty}
+                checked={menu.checked}
+            />
+        )
+
+    }
+    render() {
+
+        // const { toggleMenu } = this.props
+        // console.log(this.state.arrMenu)
+        return (
+            <Fragment key={this.props.menus}>
+                <div className="box">
+                    <div className="row">
+                        {this.state.menus.map((menu) => {
+                            return (
+
+                                <div className="col-md-4">
+                                    {this.renderCardContent(menu)}
+                                </div>
+
+                            );
+                        })}
                     </div>
                 </div>
-
-            </>
+            </Fragment>
         )
     }
 }
