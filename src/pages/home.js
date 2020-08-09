@@ -15,7 +15,7 @@ class home extends React.Component {
         }
     }
     componentDidMount() {
-        const URLString = "http://localhost:7000"
+        const URLString = "http://localhost:9000"
         Axios.get(URLString)
             .then((res) => {
                 this.setState({
@@ -29,28 +29,27 @@ class home extends React.Component {
         const { menu } = this.state
         const arrtodo = [...menu]
         const result = arrtodo.map((item) => {
-            return item.id === id
+            return item.id === id 
         })
         this.setState({
             menu: result
         })
         console.log(result)
     }
-
-
     render() {
         // console.log(this.state.menu)
-        const { menu } = this.state
+        // const { menu } = this.state
         return (
             <>
                 <Navbar />
                 <Sidebar />
                 <Sidecart
-                    menus={menu}
+                    arrMenu={this.state.menu}
                     toggleMenu={this.toggleMenu.bind(this)}
                 />
                 <Content
                     arrMenu={this.state.menu}
+                    toggleMenu={this.toggleMenu.bind(this)}
                 />
             </>
         )

@@ -1,11 +1,10 @@
-.content {
-    position: relative;
-    width: 75%;
-    height: 100%;
-  }
 .content-menu {
-    margin-left: 75px;
+    display: flex;
+    /* background-color: red; */
+    position: sticky;
+    width: 60%;
     margin-top: 55px;
+    margin-left: 10%;
     height: 100%;
   }
   .content-menu img {

@@ -9,13 +9,15 @@ class Sidebar extends React.Component {
     render() {
         return (
             <>
+
                 <div className="sidebar-left">
                     <div className="sidebar-menu">
-                            <img src={ForkLogo} alt="" />
-                            <img src={ClipboardLogo} alt=""/>
-                            <img src={AddItemLogo} alt=""/>
+                        <img src={ForkLogo} alt="" />
+                        <img src={ClipboardLogo} alt="" />
+                        <img src={AddItemLogo} alt="" />
                     </div>
                 </div>
+
             </>
         )
     }

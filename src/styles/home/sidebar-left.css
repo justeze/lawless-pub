@@ -1,12 +1,15 @@
 /* sidebar-left */
 .sidebar-left {
+  display: flex;
     height: 100%;
-    width: 75px;
+    width: 5%;
+    min-width: 75px;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #ffffff;
+    /* background-color: green; */
+    box-shadow: -5px 4px 10px rgba(0, 0, 0, 0.25);
     margin-top: 55px;
   }
   .sidebar-menu {
