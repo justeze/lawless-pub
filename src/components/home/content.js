@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "../../styles/home/content.css";
 import CardContent from "./card-content";
 import { update } from "ramda";
@@ -6,13 +6,14 @@ import { update } from "ramda";
 
 class Content extends React.Component {
 
-    constructor(props) {
+    constructor() {
         // console.log(props)
-        super(props);
+        super();
         this.state = {
-            menus: [...props.menus]
+            menus: []
         };
         this.handleCardChange = this.handleCardChange.bind(this);
+        
     }
     handleCardChange(state) {
         const updatedCardMenu = this.state.menus.findIndex((menu) => {
@@ -25,7 +26,6 @@ class Content extends React.Component {
                     {
                         ...this.state.menus[updatedCardMenu],
                         checked: state.checked,
-                        quantity: state.quantity,
                     },
                     this.state.menus
                 ),
@@ -53,8 +53,7 @@ class Content extends React.Component {
                 id={menu.id}
                 name={menu.nama_produk}
                 price={menu.harga_produk}
-                image_path={menu.gambar_produk}
-                quantity={menu.qty}
+                image={menu.gambar_produk}
                 checked={menu.checked}
             />
         )
@@ -65,8 +64,8 @@ class Content extends React.Component {
         // const { toggleMenu } = this.props
         // console.log(this.state.arrMenu)
         return (
-            <Fragment key={this.props.menus}>
-                <div className="box">
+            <>
+                <div className="box" key={this.state.menus}>
                     <div className="row">
                         {this.state.menus.map((menu) => {
                             return (
@@ -79,7 +78,7 @@ class Content extends React.Component {
                         })}
                     </div>
                 </div>
-            </Fragment>
+            </>
         )
     }
 }

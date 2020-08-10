@@ -13,7 +13,7 @@ class Sidecart extends React.Component {
         };
     }
     componentDidMount() {
-        console.log(this.props)
+        // console.log(this.props)
         this.setState ({
             arrMenu: [...this.props.arrMenu]
         })

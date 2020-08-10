@@ -9,18 +9,16 @@ class CardContent extends React.Component {
             id: props.id,
             name: props.name,
             price: props.price,
-            image_path: props.image_path,
-            quantity: props.quantity,
+            image: props.image,
             checked: props.checked,
         };
-        this.updateCard = this.updateCard.bind(this);
-        this.toggleChecked = this.toggleChecked.bind(this);
+        // this.updateCard = this.updateCard.bind(this);
+        // this.toggleChecked = this.toggleChecked.bind(this);
     }
 
     toggleChecked = () => {
         this.setState(
             {
-                quantity: 0,
                 checked: !this.state.checked,
             },
             this.updateCard
@@ -40,9 +38,8 @@ class CardContent extends React.Component {
         if (this.state.checked) {
             return (
                 <>
-
                     <div key={this.state.id} onClick={this.toggleChecked}>
-                        <img className="img-fluid" src={this.state.image_path} alt="" />
+                        <img className="img-fluid" src={this.state.image} alt="" />
                         <div className="checked-item">
                             <img src={check} alt="" />
                         </div>
@@ -55,7 +52,7 @@ class CardContent extends React.Component {
             return (
 
                 <div key={this.state.id} onClick={this.toggleChecked}>
-                    <img className="img-fluid" src={this.state.image_path} alt="" />
+                    <img className="img-fluid" src={this.state.image} alt="" />
                     <p>{this.state.name}</p>
                     <p className="price">Rp. {this.state.price}</p>
                 </div>

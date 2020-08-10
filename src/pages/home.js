@@ -40,7 +40,7 @@ class home extends React.Component {
     // }
 
     render() {
-        console.log(this.state.menu)
+        // console.log(this.state.menu)
         // const { menu } = this.state
         return (
             <>
