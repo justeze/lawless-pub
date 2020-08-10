@@ -1,5 +1,6 @@
 import React from "react";
-import check from "../../assets/add.png"
+import check from "../../assets/tick.png"
+import "../../styles/home/card-content.css";
 
 class CardContent extends React.Component {
     constructor(props) {
@@ -38,23 +39,31 @@ class CardContent extends React.Component {
         if (this.state.checked) {
             return (
                 <>
-                    <div key={this.state.id} onClick={this.toggleChecked}>
-                        <img className="img-fluid" src={this.state.image} alt="" />
-                        <div className="checked-item">
-                            <img src={check} alt="" />
+                    <div className="content" key={this.state.id} onClick={this.toggleChecked}>
+                        <div className="content-image">
+                            <img className="img-fluid" src={this.state.image} alt="" />
+                            <div className="checked-item">
+                                <img src={check} alt="" />
+                            </div>
                         </div>
-                        <p>{this.state.name}</p>
-                        <p className="price">Rp. {this.state.price}</p>
+                        <div className="desc-content">
+                            <p>{this.state.name}</p>
+                            <p className="price">Rp. {this.state.price}</p>
+                        </div>
                     </div>
                 </>
             );
         } else {
             return (
 
-                <div key={this.state.id} onClick={this.toggleChecked}>
-                    <img className="img-fluid" src={this.state.image} alt="" />
-                    <p>{this.state.name}</p>
-                    <p className="price">Rp. {this.state.price}</p>
+                <div className="content" key={this.state.id} onClick={this.toggleChecked}>
+                    <div className="content-image">
+                        <img className="img-fluid" src={this.state.image} alt="" />
+                    </div>
+                    <div className="desc-content">
+                        <p>{this.state.name}</p>
+                        <p className="price">Rp. {this.state.price}</p>
+                    </div>
                 </div>
 
             );

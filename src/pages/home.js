@@ -52,10 +52,8 @@ class home extends React.Component {
                     // toggleMenu={this.toggleMenu.bind(this)}
                 />
                 <Content
-            
                     menus={this.state.menu}
                     // toggleMenu={this.toggleMenu.bind(this)}
-
                 />
             </>
         )

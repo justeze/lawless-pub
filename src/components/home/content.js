@@ -5,7 +5,6 @@ import { update } from "ramda";
 
 
 class Content extends React.Component {
-
     constructor() {
         // console.log(props)
         super();
